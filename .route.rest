@@ -1,0 +1,48 @@
+### acessando via get
+GET http://localhost:3000/reseller
+
+### Cadastrar Revendedor
+POST http://localhost:3000/reseller/add
+Content-type: application/json
+
+{
+    "name": "Teste User",
+    "email": "tu@teste.com.br",
+    "cpf": "153.509.460-56",
+    "passwd": "teste"
+    # , 
+    # "address": "",
+    # "cep": "",
+    # "uf": "",
+    # "phone": "",
+    # "birth": "" 
+}
+
+### Realizar o Login
+POST http://localhost:3000/reseller/login
+Content-Type: application/json
+
+{
+    "cpf": "153.509.460-56",
+    "passwd": "teste"
+}
+
+### Cadastrar Compra
+POST http://localhost:3000/purshase/add
+Content-type: application/json
+x-access-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2MDYyNDI4NTUsImV4cCI6MTYwNjI0MzE1NX0.9yb56bBwJ-72ilDLAfsz9k7Zw659PonJ10x9KlFf6NI
+
+{
+    "cpf": "23482254532",
+    "code": "01249799",
+    "value": "540,00" 
+    // A data da compra é registrada pelo timestamp do banco no campo pur_date
+}
+
+### listar compras
+GET http://localhost:3000/purshase
+x-access-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2MDYyNDI4NTUsImV4cCI6MTYwNjI0MzE1NX0.9yb56bBwJ-72ilDLAfsz9k7Zw659PonJ10x9KlFf6NI
+
+### Acumulado cashback
+GET http://localhost:3000/purshase/cashback/12312312323
+x-access-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2MDYyNDI4NTUsImV4cCI6MTYwNjI0MzE1NX0.9yb56bBwJ-72ilDLAfsz9k7Zw659PonJ10x9KlFf6NI
